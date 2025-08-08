@@ -1,0 +1,41 @@
+name: Logo Preview
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  CreatePreview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps
+
+      - name: Build the project
+        run: pnpm build
+
+      - name: Run server
+        run: PORT=3000 pnpm start & sleep 30
+
+      - name: Run screenshot script
+        run: node .github/actions/screenshot-playwright.mts
