@@ -17,7 +17,7 @@ if (!res.ok) {
 
 const {
   file: { url_private_download: urlPrivateDownload, url_private: urlPrivate },
-} = await res.json();
+} = await res.json().then((data) => (console.log(data), data));
 
 const downloadRes = await fetch(urlPrivateDownload, {
   headers: {
@@ -30,7 +30,9 @@ if (!downloadRes.ok) {
 
 console.info(urlPrivate);
 
-const arrayBuffer = await downloadRes.arrayBuffer();
+const arrayBuffer = await downloadRes
+  .arrayBuffer()
+  .then((data) => (console.log(data), data));
 await writeFile(
   path.join(import.meta.dirname, "../../public/downloaded_image.png"),
   Buffer.from(arrayBuffer)
