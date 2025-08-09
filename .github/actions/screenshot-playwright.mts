@@ -13,8 +13,6 @@ const buffer = await page.screenshot({ path: FILENAME });
 
 await browser.close();
 
-process.exit(0);
-
 const url = new URL("https://slack.com/api/files.getUploadURLExternal");
 url.searchParams.append("filename", FILENAME);
 url.searchParams.append("length", `${buffer.length}`);
