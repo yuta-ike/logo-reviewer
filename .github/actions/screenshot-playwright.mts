@@ -10,13 +10,14 @@ await page.goto("http://localhost:3000");
 
 await page.waitForLoadState("networkidle");
 
-const locator = page.getByTestId(TARGET_TESTID);
+// const locator = page.getByTestId(TARGET_TESTID);
 
-const box = await locator.boundingBox();
+// const box = await locator.boundingBox();
 
 const buffer = await page.screenshot({
   path: FILENAME,
-  clip: extendBox(box ?? undefined),
+  fullPage: true,
+  // clip: extendBox(box ?? undefined),
 });
 
 await browser.close();
