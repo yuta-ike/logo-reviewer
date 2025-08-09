@@ -7,31 +7,15 @@ on:
   pull_request:
     branches:
       - main
+  repository_dispatch:
+    types: [slack_trigger]
 
 jobs:
   CreatePreview:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_IN_PREVIEW: 1
-      NEXT_PUBLIC_PREVIEW_DATA: |
-        {
-          "id": "preview",
-          "title": "テスト株式会社",
-          "url": "https://example.com",
-          "image": "/preview.png",
-          "description":
-            "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。",
-          "links": [
-            {
-              "label": "公式サイト",
-              "url": "https://example.com"
-            },
-            {
-              "label": "サービスサイト",
-              "url": "https://example.com"
-            }
-          ]
-        }
+      NEXT_PUBLIC_IN_PREVIEW: ${{ github.event.client_payload.in_preview || '1' }}
+      NEXT_PUBLIC_PREVIEW_DATA: ${{ github.event.client_payload.preview_data || '{}' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
