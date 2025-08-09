@@ -33,6 +33,26 @@ jobs:
 
       - name: Build the project
         run: pnpm build
+        env:
+          IN_PREVIEW: 1
+          PREVIEW_DATA: |
+            {
+              title: "テスト株式会社",
+              url: "https://example.com",
+              image: "/preview.png",
+              description:
+                "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。",
+              links: [
+                {
+                  label: "公式サイト",
+                  url: "https://example.com",
+                },
+                {
+                  label: "サービスサイト",
+                  url: "https://example.com",
+                },
+              ],
+            }
 
       - name: Fetch Image From Slack
         run: node .github/actions/fetch-image-from-slack.mts
@@ -59,5 +79,6 @@ jobs:
                 },
               ],
             }
+
       - name: Run screenshot script
         run: node .github/actions/screenshot-playwright.mts
