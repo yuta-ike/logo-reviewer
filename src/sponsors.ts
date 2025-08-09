@@ -67,7 +67,8 @@ export const SPONSORS = [
       },
     ],
   },
-  process.env.IN_PREVIEW === "1"
-    ? JSON.parse(process.env.PREVIEW_DATA ?? "{}")
-    : null,
-].filter(Boolean);
+];
+
+if (process.env.IN_PREVIEW === "1") {
+  SPONSORS.push(JSON.parse(process.env.PREVIEW_DATA ?? "{}"));
+}
