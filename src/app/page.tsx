@@ -6,7 +6,11 @@ export default function Home() {
     <div className="font-sans p-4">
       <main className="max-w-[800px] mx-auto flex flex-col">
         {SPONSORS.map((sponsor) => (
-          <div key={sponsor.title} className="p-4">
+          <div
+            key={sponsor.id}
+            data-testid={`sponsor-${sponsor.id}`}
+            className="p-4"
+          >
             <div className="flex items-center space-x-4">
               <a
                 href={sponsor.url}

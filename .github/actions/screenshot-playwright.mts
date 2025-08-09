@@ -1,6 +1,7 @@
 import { chromium } from "@playwright/test";
 
 const FILENAME = "screenshot-playwright.png";
+const TARGET_TESTID = "sponsor-preview";
 
 const browser = await chromium.launch();
 const page = await browser.newPage();
@@ -9,7 +10,14 @@ await page.goto("http://localhost:3000");
 
 await page.waitForLoadState("networkidle");
 
-const buffer = await page.screenshot({ path: FILENAME });
+const locator = page.getByTestId(TARGET_TESTID);
+
+const box = await locator.boundingBox();
+
+const buffer = await page.screenshot({
+  path: FILENAME,
+  clip: extendBox(box ?? undefined),
+});
 
 await browser.close();
 
@@ -64,4 +72,20 @@ const completeRes = await fetch(
 
 if (!completeRes.ok) {
   throw new Error(`Failed to complete file upload: ${completeRes.statusText}`);
+}
+
+function extendBox(input?: {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}) {
+  if (input == null) return undefined;
+  const PADDING = 200;
+  return {
+    x: input.x - PADDING,
+    y: input.y - PADDING,
+    width: input.width + PADDING * 2,
+    height: input.height + PADDING * 2,
+  };
 }
