@@ -62,8 +62,8 @@ jobs:
       - name: Run server
         run: pnpm start &
         env:
-          IN_PREVIEW: 1
-          PREVIEW_DATA: |
+          NEXT_PUBLIC_IN_PREVIEW: 1
+          NEXT_PUBLIC_PREVIEW_DATA: |
             {
               "id": "preview",
               "title": "テスト株式会社",

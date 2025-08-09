@@ -73,6 +73,6 @@ export const SPONSORS = [
   },
 ];
 
-if (process.env.IN_PREVIEW === "1") {
-  SPONSORS.push(JSON.parse(process.env.PREVIEW_DATA ?? "{}"));
+if (process.env.NEXT_PUBLIC_IN_PREVIEW === "1") {
+  SPONSORS.push(JSON.parse(process.env.NEXT_PUBLIC_PREVIEW_DATA ?? "{}"));
 }
