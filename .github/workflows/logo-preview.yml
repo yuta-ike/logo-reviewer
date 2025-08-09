@@ -48,6 +48,7 @@ jobs:
         run: node ${{ github.workspace }}/.github/actions/fetch-image-from-slack.mts
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          FILE_ID: ${{ github.event.client_payload.file_id || '' }}
 
       - name: Run server
         run: pnpm start &
