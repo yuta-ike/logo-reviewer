@@ -56,6 +56,8 @@ jobs:
 
       - name: Fetch Image From Slack
         run: node ${{ github.workspace }}/.github/actions/fetch-image-from-slack.mts
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
       - name: Run server
         run: pnpm start
@@ -83,3 +85,5 @@ jobs:
 
       - name: Run screenshot script
         run: node ${{ github.workspace }}/.github/actions/screenshot-playwright.mts
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
