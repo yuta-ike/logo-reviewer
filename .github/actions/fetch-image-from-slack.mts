@@ -34,6 +34,6 @@ const arrayBuffer = await downloadRes
   .arrayBuffer()
   .then((data) => (console.log(data), data));
 await writeFile(
-  path.join(import.meta.dirname, "../../public/downloaded_image.png"),
+  path.join(import.meta.dirname, "../../public/preview.png"),
   Buffer.from(arrayBuffer)
 );
