@@ -1,5 +1,6 @@
 export const SPONSORS = [
   {
+    id: "1",
     title: "テスト株式会社",
     url: "https://example.com",
     image: "https://picsum.photos/400/300?random=1",
@@ -17,6 +18,7 @@ export const SPONSORS = [
     ],
   },
   {
+    id: "2",
     title: "株式会社サンプル",
     url: "https://example.com",
     image: "https://picsum.photos/400/300?random=2",
@@ -34,6 +36,7 @@ export const SPONSORS = [
     ],
   },
   {
+    id: "3",
     title: "デモ有限会社",
     url: "https://example.com",
     image: "https://picsum.photos/400/300?random=3",
@@ -51,6 +54,7 @@ export const SPONSORS = [
     ],
   },
   {
+    id: "4",
     title: "フィクション株式会社",
     url: "https://example.com",
     image: "https://picsum.photos/400/300?random=4",

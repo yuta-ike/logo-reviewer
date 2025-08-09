@@ -45,13 +45,13 @@ jobs:
               "links": [
                 {
                   "label": "公式サイト",
-                  "url": "https://example.com",
+                  "url": "https://example.com"
                 },
                 {
                   "label": "サービスサイト",
-                  "url": "https://example.com",
-                },
-              ],
+                  "url": "https://example.com"
+                }
+              ]
             }
 
       - name: Fetch Image From Slack
@@ -63,6 +63,7 @@ jobs:
           IN_PREVIEW: 1
           PREVIEW_DATA: |
             {
+              "id": "preview",
               "title": "テスト株式会社",
               "url": "https://example.com",
               "image": "/preview.png",
@@ -71,13 +72,13 @@ jobs:
               "links": [
                 {
                   "label": "公式サイト",
-                  "url": "https://example.com",
+                  "url": "https://example.com"
                 },
                 {
                   "label": "サービスサイト",
-                  "url": "https://example.com",
-                },
-              ],
+                  "url": "https://example.com"
+                }
+              ]
             }
 
       - name: Run screenshot script
