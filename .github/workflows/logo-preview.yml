@@ -37,19 +37,19 @@ jobs:
           IN_PREVIEW: 1
           PREVIEW_DATA: |
             {
-              title: "テスト株式会社",
-              url: "https://example.com",
-              image: "/preview.png",
-              description:
+              "title": "テスト株式会社",
+              "url": "https://example.com",
+              "image": "/preview.png",
+              "description":
                 "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。",
-              links: [
+              "links": [
                 {
-                  label: "公式サイト",
-                  url: "https://example.com",
+                  "label": "公式サイト",
+                  "url": "https://example.com",
                 },
                 {
-                  label: "サービスサイト",
-                  url: "https://example.com",
+                  "label": "サービスサイト",
+                  "url": "https://example.com",
                 },
               ],
             }
@@ -63,19 +63,19 @@ jobs:
           IN_PREVIEW: 1
           PREVIEW_DATA: |
             {
-              title: "テスト株式会社",
-              url: "https://example.com",
-              image: "/preview.png",
-              description:
+              "title": "テスト株式会社",
+              "url": "https://example.com",
+              "image": "/preview.png",
+              "description":
                 "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。",
-              links: [
+              "links": [
                 {
-                  label: "公式サイト",
-                  url: "https://example.com",
+                  "label": "公式サイト",
+                  "url": "https://example.com",
                 },
                 {
-                  label: "サービスサイト",
-                  url: "https://example.com",
+                  "label": "サービスサイト",
+                  "url": "https://example.com",
                 },
               ],
             }
